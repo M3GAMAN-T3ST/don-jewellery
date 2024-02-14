@@ -1,6 +1,6 @@
 Config = Config or {}
 
-Config.OneStore = true -- Set to true if using just the main Vangelico's Jewellers
+Config.OneStore = false -- Set to true if using just the main Vangelico's Jewellers
 Config.Cooldown = 5 * (60 * 2000) -- where x is minutes ie. x * (60 * 2000) \\ For door auto lock function
 Config.Timeout = 5 * (60 * 2000) -- where x is minutes ie. x * (60 * 2000) \\ For case smashing cooldown
 Config.AutoLock = true -- Set to false if you don't want the doors to auto lock/lock at all
@@ -119,7 +119,7 @@ Config.ThermiteSettings = {
   incorrectBlocks = 10 -- incorrectBlocks = number of incorrect blocks after which the game will fail
 }
 
-Config.HackItem = 'phone' -- item to remove\check for when hacking
+Config.HackItem = 'trojan_usb' -- item to remove\check for when hacking
 Config.VarHackSettings = {
   blocks = 2, -- time the hack displays for \\ half being showing the puzzle and the other solving
   time = 20 -- time the hack displays for
