@@ -1,6 +1,6 @@
 Config = Config or {}
 
-Config.OneStore = false -- Set to true if using just the main Vangelico's Jewellers
+Config.OneStore = true -- Set to true if using just the main Vangelico's Jewellers
 Config.Cooldown = 5 * (60 * 2000) -- where x is minutes ie. x * (60 * 2000) \\ For door auto lock function
 Config.Timeout = 5 * (60 * 2000) -- where x is minutes ie. x * (60 * 2000) \\ For case smashing cooldown
 Config.AutoLock = true -- Set to false if you don't want the doors to auto lock/lock at all
@@ -109,14 +109,32 @@ Config.Stores = {
       effect = vector3(-368.35, 6055.36, 31.31)
     },
     hit = false -- Don't touch this
-  }
+  },
+  [4] = { -- Custom
+    label = 'Vankhov Jewellers',
+    coords = vector3(-1375.01, -287.94, 43.7),
+    ['Doors'] = {
+      main = 'jewellery-vanmain',
+      sec = 'jewellery-vansec'
+    },
+    ['Thermite'] = {
+      -- Vankhov \\ Thermite --
+      coords = vector3(-1359.77, -284.26, 42.18), -- h = 136.27
+      h = 119.25,
+      minZ = 41.2,
+      maxZ = 43.4,
+      anim = vector4(-1359.77, -284.26, 42.18, 119.25), 
+      effect = vector3(-1359.77, -284.26, 42.18)
+    },
+    hit = false -- Don't touch this
+  },
 }
 
 Config.DoorItem = 'thermite' -- item to remove\check for when placing a charge
 Config.ThermiteSettings = {
   time = 60, -- time the hack displays for \\ half being showing the puzzle and the other solving
   gridsize = 5, -- (5, 6, 7, 8, 9, 10) size of grid by square units, ie. gridsize = 5 is a 5 * 5 (25) square grid
-  incorrectBlocks = 10 -- incorrectBlocks = number of incorrect blocks after which the game will fail
+  incorrectBlocks = 3 -- incorrectBlocks = number of incorrect blocks after which the game will fail
 }
 
 Config.HackItem = 'trojan_usb' -- item to remove\check for when hacking
@@ -498,7 +516,148 @@ Config.Vitrines = {
     isBusy = false,
     propStart = `des_jewel_cab3_start`,
     propEnd = `des_jewel_cab3_end`
-  }
+  },
+  -- Custom
+  [33] = {
+    coords = vector3(-1368.65, -285.17, 43.69),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [34] = {
+    coords = vector3(-1367.14, -286.87, 43.68),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [35] = {
+    coords = vector3(-1366.04, -288.12, 43.7),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [36] = {
+    coords = vector3(-1364.57, -289.77, 43.7),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [37] = {
+    coords = vector3(-1363.43, -291.01, 43.7),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [38] = {
+    coords = vector3(-1362.06, -292.57, 43.67),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [39] = {
+    coords = vector3(-1362.18, -293.66, 43.68),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [40] = {
+    coords = vector3(-1363.73, -295.04, 43.71),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [41] = {
+    coords = vector3(-1368.49, -292.33, 43.77),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [42] = {
+    coords = vector3(-1371.28, -294.81, 43.74),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [43] = {
+    coords = vector3(-1374.16, -294.78, 43.78),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [44] = {
+    coords = vector3(-1376.61, -291.98, 43.81),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [45] = {
+    coords = vector3(-1374.86, -289.08, 43.74),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [46] = {
+    coords = vector3(-1373.75, -288.12, 43.76),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [47] = {
+    coords = vector3(-1380.73, -294.79, 43.78),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [48] = {
+    coords = vector3(-1382.31, -296.19, 43.7),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [49] = {
+    coords = vector3(-1377.88, -297.94, 43.75),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [50] = {
+    coords = vector3(-1379.48, -299.33, 43.74),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [51] = {
+    coords = vector3(-1385.07, -294.35, 43.77),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
+  [52] = {
+    coords = vector3(-1381.77, -291.51, 43.72),
+    isOpened = false,
+    isBusy = false,
+    propStart = nil,
+    propEnd = nil
+  },
 }
 
 Config.MaleNoHandshoes = {
