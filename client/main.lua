@@ -32,6 +32,8 @@ local function isStoreHit(vitrine, isStore)
     store = 2
   elseif vitrine >= 27 and vitrine <= 32 then
     store = 3
+  elseif vitrine >= 33 and vitrine <= 52 then
+    store = 4
   end
   if Config.Stores[store].hit then
     return true
@@ -156,6 +158,8 @@ local function getCamID(k)
     camID = 35
   elseif k >= 27 and k <= 32 then
     camID = 36
+  elseif k >= 33 and k <= 52 then
+    camID = 37
   end
   return camID
 end
@@ -383,14 +387,14 @@ AddEventHandler('don-jewellery:client:SmashCase', function(case)
 end)
 
 AddEventHandler('don-jewellery:client:Thermite', function(store)
-  local AlertChance = randomNum(1, 100)
+  local AlertChance = 100
   if checkTime(Config.VangelicoHours.alertmorn.start, Config.VangelicoHours.alertmorn.fin) or checkTime(Config.VangelicoHours.alertnight.start, Config.VangelicoHours.alertnight.fin) then
-    AlertChance = randomNum(1, 50)
+    AlertChance = 100
   else
     AlertChance = AlertChance
   end
 
-  if AlertChance <= 10 then
+  if AlertChance <= 100 then
     if Config.Dispatch == 'qb' then
       TriggerServerEvent('police:server:policeAlert', 'Suspicious Activity')
     elseif Config.Dispatch == 'ps' then
@@ -610,16 +614,30 @@ end)
 
 -------------------------------- EVENTS --------------------------------
 
+-- RegisterNetEvent('don-jewellery:client:SetVitrineState', function(stateType, state, k)
+--   Config.Vitrines[k][stateType] = state
+--   if stateType == 'isBusy' and state == true then
+--     CreateModelSwap(Config.Vitrines[k].coords, 0.1, Config.Vitrines[k].propStart, Config.Vitrines[k].propEnd, false)
+--   end
+
+--   if stateType == 'isOpened' and state == false then
+--     RemoveModelSwap(Config.Vitrines[k].coords, 0.1, Config.Vitrines[k].propStart, Config.Vitrines[k].propEnd, false)
+--   end
+-- end)
+
 RegisterNetEvent('don-jewellery:client:SetVitrineState', function(stateType, state, k)
   Config.Vitrines[k][stateType] = state
-  if stateType == 'isBusy' and state == true then
-    CreateModelSwap(Config.Vitrines[k].coords, 0.1, Config.Vitrines[k].propStart, Config.Vitrines[k].propEnd, false)
+  local vitrine = Config.Vitrines[k]
+
+  if stateType == 'isBusy' and state == true and vitrine.propStart and vitrine.propEnd then
+    CreateModelSwap(vitrine.coords, 0.1, vitrine.propStart, vitrine.propEnd, false)
   end
 
-  if stateType == 'isOpened' and state == false then
-    RemoveModelSwap(Config.Vitrines[k].coords, 0.1, Config.Vitrines[k].propStart, Config.Vitrines[k].propEnd, false)
+  if stateType == 'isOpened' and state == false and vitrine.propStart and vitrine.propEnd then
+    RemoveModelSwap(vitrine.coords, 0.1, vitrine.propStart, vitrine.propEnd, false)
   end
 end)
+
 
 RegisterNetEvent('don-jewellery:client:StoreHit', function(storeIndex, isHit)
   if not storeIndex or not isHit then return end
